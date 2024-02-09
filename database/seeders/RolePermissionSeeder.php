@@ -24,6 +24,7 @@ class RolePermissionSeeder extends Seeder
         Permission::create(['name' => 'edit-pengiriman']);
         Permission::create(['name' => 'read-pengiriman']);
         Permission::create(['name' => 'delete-pengiriman']);
+        Permission::create(['name' => 'kirim-pengiriman']);
 
 
         /**
@@ -37,7 +38,7 @@ class RolePermissionSeeder extends Seeder
         /**
          * Role Admin
          */
-        
+
         $roleAdmin = Role::findByName('admin');
         $roleAdmin->givePermissionTo('add-pengiriman');
         $roleAdmin->givePermissionTo('edit-pengiriman');
@@ -46,18 +47,17 @@ class RolePermissionSeeder extends Seeder
 
         /**
          * Role Agent
-        */
+         */
         $roleAgent = Role::findByName('agent');
-        $roleAgent->givePermissionTo('add-pengiriman');
-        $roleAgent->givePermissionTo('edit-pengiriman');
         $roleAgent->givePermissionTo('read-pengiriman');
-        $roleAgent->givePermissionTo('delete-pengiriman');
+        $roleAgent->givePermissionTo('kirim-pengiriman');
 
 
-         /**
+        /**
          * Role USer
          */
         $roleUser = Role::findByName('user');
+        $roleUser->givePermissionTo('add-pengiriman');
         $roleUser->givePermissionTo('read-pengiriman');
     }
 }

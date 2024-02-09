@@ -23,4 +23,22 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+// Logout
+Route::post('logout', function () {
+    auth()
+        ->guard('web')
+        ->logout();
+
+    session()->invalidate();
+    session()->regenerateToken();
+
+    return redirect()->route('login');
+})->name('logout');
+
+Route::get('/pengiriman', App\Livewire\Beranda::class)->name('pengiriman');
+Route::get('/pengiriman/ajax', [App\Http\Controllers\PengirimanController::class, 'getPengiriman'])->name('pengiriman.ajax');
+Route::get('/pengiriman/create', App\Livewire\CreatePengiriman::class)->name('create.pengiriman');
+Route::get('/pengiriman/{pengirimanId}', App\Livewire\DetailPengiriman::class)->name('detail.pengiriman');
+Route::get('/pengiriman/{pengirimanId}/edit', App\Livewire\EditPengiriman::class)->name('edit.pengiriman');
+
+require __DIR__ . '/auth.php';

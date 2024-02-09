@@ -8,28 +8,30 @@ use App\Models\User;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        $admin = User::create([
-            'name' => 'Gavin Atha',
-            'email' => 'gavin@gmail.com',
-            'password' => bcrypt('spasi1kali'),
-          ]);
-        
-        $agent = User::create([
-        'name' => 'Alfian Syarif',
-        'email' => 'alfiansyarif@gmail.com',
-        'password' => bcrypt('spasi1kali'),
-        ]);
+  /**
+   * Run the database seeds.
+   */
+  public function run(): void
+  {
+    $admin = User::create([
+      'name' => 'Gavin Atha',
+      'email' => 'gavin@gmail.com',
+      'password' => bcrypt('spasi1kali'),
+    ]);
+    $admin->assignRole('admin');
 
-        $user = User::create([
-            'name' => 'Kaka',
-            'email' => 'kaka@gmail.com',
-            'password' => bcrypt('spasi1kali'),
-          ]);  
-  
-    }
+    $agent = User::create([
+      'name' => 'Alfian Syarif',
+      'email' => 'alfiansyarif@gmail.com',
+      'password' => bcrypt('spasi1kali'),
+    ]);
+    $agent->assignRole('agent');
+
+    $user = User::create([
+      'name' => 'Kaka',
+      'email' => 'kaka@gmail.com',
+      'password' => bcrypt('spasi1kali'),
+    ]);
+    $user->assignRole('user');
+  }
 }
