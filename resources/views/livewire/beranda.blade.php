@@ -224,9 +224,21 @@
 
     <div wire:ignore
         class="relative py-3 px-3 rounded-lg w-full dark:bg-gray-700 border-1 border-kuning-300 dark:border-blue-800 shadow">
-        <h3
-            class="md:absolute md:mb-2 md:inset-y-3 md:inset-x-1/3 text-gray-500 dark:text-gray-100 font-semibold text-center text-2xl">
-            Tabel Pengiriman</h3>
+        @role('admin')
+            <h3
+                class="md:absolute md:mb-2 md:inset-y-3 md:inset-x-1/3 text-gray-500 dark:text-gray-100 font-semibold text-center text-2xl">
+                Tabel Pengiriman</h3>
+        @endrole
+        @role('agent')
+            <h3
+                class="mb-8 md:mb-2 md:inset-y-3 md:inset-x-1/3 text-gray-500 dark:text-gray-100 font-semibold text-center text-2xl">
+                Tabel Pengiriman</h3>
+        @endrole
+        @role('user')
+            <h3
+                class="mb-8 md:mb-2 md:inset-y-3 md:inset-x-1/3 text-gray-500 dark:text-gray-100 font-semibold text-center text-2xl">
+                Tabel Pengiriman</h3>
+        @endrole
         <div class="overflow-x-scroll p-0">
             <table class="flex-1 table table-bordered w-full" style="width: 100%" id="pengiriman-table">
                 <thead>
@@ -370,7 +382,7 @@
 
         function makeDataTable(table, title, columnArray, dataColumns) {
 
-            $(table).dataTable({
+            $(table).DataTable({
                 processing: true,
                 serverSide: true,
                 pageLength: 15,
@@ -405,7 +417,57 @@
                 columns: dataColumns,
                 order: [
                     [0, "asc"]
-                ]
+                ],
+                language: {
+                    emptyTable: "Tidak ada data yang tersedia pada tabel ini",
+                    info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+                    infoEmpty: "Menampilkan 0 sampai 0 dari 0 entri",
+                    infoFiltered: "(disaring dari _MAX_ entri keseluruhan)",
+                    infoThousands: "'",
+                    lengthMenu: "Tampilkan _MENU_ entri",
+                    loadingRecords: "Sedang memuat...",
+                    processing: "Sedang memproses...",
+                    search: "Cari:",
+                    zeroRecords: "Tidak ditemukan data yang sesuai",
+                    thousands: "'",
+                    paginate: {
+                        first: "Pertama",
+                        last: "Terakhir",
+                        next: "Selanjutnya",
+                        previous: "Sebelumnya",
+                    },
+                    aria: {
+                        sortAscending: ": aktifkan untuk mengurutkan kolom ke atas",
+                        sortDescending: ": aktifkan untuk mengurutkan kolom menurun",
+                    },
+                    autoFill: {
+                        cancel: "Batalkan",
+                        fill: "Isi semua sel dengan <i>%d</i>",
+                        fillHorizontal: "Isi sel secara horizontal",
+                        fillVertical: "Isi sel secara vertikal",
+                    },
+                    buttons: {
+                        collection: "Kumpulan <span class='ui-button-icon-primary ui-icon ui-icon-triangle-1-s'/>",
+                        colvis: "Visibilitas Kolom",
+                        colvisRestore: "Kembalikan visibilitas",
+                        copy: "Salin",
+                        copyKeys: "Tekan ctrl atau u2318 + C untuk menyalin tabel ke papan klip.<br><br>To membatalkan, klik pesan ini atau tekan esc.",
+                        copySuccess: {
+                            1: "1 baris disalin ke papan klip",
+                            _: "%d baris disalin ke papan klip",
+                        },
+                        copyTitle: "Salin ke Papan klip",
+                        csv: "CSV",
+                        excel: "Excel",
+                        pageLength: {
+                            1: "Tampilkan 1 baris",
+                            "-1": "Tampilkan semua baris",
+                            _: "Tampilkan %d baris",
+                        },
+                        pdf: "PDF",
+                        print: "Cetak",
+                    },
+                },
             });
         }
     </script>
@@ -423,11 +485,11 @@
             var title = "Manajemen Pengiriman";
             var columns = [];
             var dataColumns = [
-                 /* {
-                    data: 'id',
-                    name: 'id',
-                    searchable: false
-                }, */
+                /* {
+                        data: 'id',
+                        name: 'id',
+                        searchable: false
+                    }, */
                 {
                     data: 'nomor_resi',
                     name: 'nomor_resi'
@@ -461,7 +523,7 @@
 
         function makeDataTable(table, title, columnArray, dataColumns) {
 
-            $(table).dataTable({
+            $(table).DataTable({
                 processing: true,
                 serverSide: true,
                 pageLength: 15,
@@ -470,7 +532,57 @@
                 columns: dataColumns,
                 order: [
                     [0, "asc"]
-                ]
+                ],
+                language: {
+                    emptyTable: "Tidak ada data yang tersedia pada tabel ini",
+                    info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+                    infoEmpty: "Menampilkan 0 sampai 0 dari 0 entri",
+                    infoFiltered: "(disaring dari _MAX_ entri keseluruhan)",
+                    infoThousands: "'",
+                    lengthMenu: "Tampilkan _MENU_ entri",
+                    loadingRecords: "Sedang memuat...",
+                    processing: "Sedang memproses...",
+                    search: "Cari:",
+                    zeroRecords: "Tidak ditemukan data yang sesuai",
+                    thousands: "'",
+                    paginate: {
+                        first: "Pertama",
+                        last: "Terakhir",
+                        next: "Selanjutnya",
+                        previous: "Sebelumnya",
+                    },
+                    aria: {
+                        sortAscending: ": aktifkan untuk mengurutkan kolom ke atas",
+                        sortDescending: ": aktifkan untuk mengurutkan kolom menurun",
+                    },
+                    autoFill: {
+                        cancel: "Batalkan",
+                        fill: "Isi semua sel dengan <i>%d</i>",
+                        fillHorizontal: "Isi sel secara horizontal",
+                        fillVertical: "Isi sel secara vertikal",
+                    },
+                    buttons: {
+                        collection: "Kumpulan <span class='ui-button-icon-primary ui-icon ui-icon-triangle-1-s'/>",
+                        colvis: "Visibilitas Kolom",
+                        colvisRestore: "Kembalikan visibilitas",
+                        copy: "Salin",
+                        copyKeys: "Tekan ctrl atau u2318 + C untuk menyalin tabel ke papan klip.<br><br>To membatalkan, klik pesan ini atau tekan esc.",
+                        copySuccess: {
+                            1: "1 baris disalin ke papan klip",
+                            _: "%d baris disalin ke papan klip",
+                        },
+                        copyTitle: "Salin ke Papan klip",
+                        csv: "CSV",
+                        excel: "Excel",
+                        pageLength: {
+                            1: "Tampilkan 1 baris",
+                            "-1": "Tampilkan semua baris",
+                            _: "Tampilkan %d baris",
+                        },
+                        pdf: "PDF",
+                        print: "Cetak",
+                    },
+                },
             });
         }
     </script>
@@ -488,11 +600,11 @@
             var title = "Manajemen Pengiriman";
             var columns = [];
             var dataColumns = [
-                 /* {
-                    data: 'id',
-                    name: 'id',
-                    searchable: false
-                }, */
+                /* {
+                        data: 'id',
+                        name: 'id',
+                        searchable: false
+                    }, */
                 {
                     data: 'nomor_resi',
                     name: 'nomor_resi'
@@ -531,16 +643,66 @@
 
         function makeDataTable(table, title, columnArray, dataColumns) {
 
-            $(table).dataTable({
+            $(table).DataTable({
                 processing: true,
                 serverSide: true,
                 pageLength: 15,
                 buttons: [],
-                ajax: @json(route('pengiriman.ajax')),
+                ajax: @json(route('pengiriman.user.ajax')),
                 columns: dataColumns,
                 order: [
                     [0, "asc"]
-                ]
+                ],
+                language: {
+                    emptyTable: "Tidak ada data yang tersedia pada tabel ini",
+                    info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+                    infoEmpty: "Menampilkan 0 sampai 0 dari 0 entri",
+                    infoFiltered: "(disaring dari _MAX_ entri keseluruhan)",
+                    infoThousands: "'",
+                    lengthMenu: "Tampilkan _MENU_ entri",
+                    loadingRecords: "Sedang memuat...",
+                    processing: "Sedang memproses...",
+                    search: "Cari:",
+                    zeroRecords: "Tidak ditemukan data yang sesuai",
+                    thousands: "'",
+                    paginate: {
+                        first: "Pertama",
+                        last: "Terakhir",
+                        next: "Selanjutnya",
+                        previous: "Sebelumnya",
+                    },
+                    aria: {
+                        sortAscending: ": aktifkan untuk mengurutkan kolom ke atas",
+                        sortDescending: ": aktifkan untuk mengurutkan kolom menurun",
+                    },
+                    autoFill: {
+                        cancel: "Batalkan",
+                        fill: "Isi semua sel dengan <i>%d</i>",
+                        fillHorizontal: "Isi sel secara horizontal",
+                        fillVertical: "Isi sel secara vertikal",
+                    },
+                    buttons: {
+                        collection: "Kumpulan <span class='ui-button-icon-primary ui-icon ui-icon-triangle-1-s'/>",
+                        colvis: "Visibilitas Kolom",
+                        colvisRestore: "Kembalikan visibilitas",
+                        copy: "Salin",
+                        copyKeys: "Tekan ctrl atau u2318 + C untuk menyalin tabel ke papan klip.<br><br>To membatalkan, klik pesan ini atau tekan esc.",
+                        copySuccess: {
+                            1: "1 baris disalin ke papan klip",
+                            _: "%d baris disalin ke papan klip",
+                        },
+                        copyTitle: "Salin ke Papan klip",
+                        csv: "CSV",
+                        excel: "Excel",
+                        pageLength: {
+                            1: "Tampilkan 1 baris",
+                            "-1": "Tampilkan semua baris",
+                            _: "Tampilkan %d baris",
+                        },
+                        pdf: "PDF",
+                        print: "Cetak",
+                    },
+                },
             });
         }
     </script>

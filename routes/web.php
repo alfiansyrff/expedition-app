@@ -31,12 +31,13 @@ Route::view('/', 'welcome');
 require __DIR__ . '/auth.php';
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    
+
     Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::view('profile', 'profile')->name('profile');
 
     Route::get('/pengiriman', Beranda::class)->name('pengiriman');
     Route::get('/pengiriman/ajax', [PengirimanController::class, 'getPengiriman'])->name('pengiriman.ajax');
+    Route::get('/pengiriman-user/ajax', [PengirimanController::class, 'getPengirimanUser'])->name('pengiriman.user.ajax');
 
     Route::middleware(['role:admin|user'])->group(function () {
         Route::get('/pengiriman/create', CreatePengiriman::class)->name('create.pengiriman');

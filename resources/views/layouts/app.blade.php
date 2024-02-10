@@ -15,9 +15,10 @@
         rel="stylesheet" />
 
     <!-- Yajra DataTable -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js" "></script>
     <link href="https://cdn.datatables.net/v/bs5/dt-1.13.7/b-2.4.2/b-html5-2.4.2/datatables.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/b89324f31c.js" crossorigin="anonymous"></script>

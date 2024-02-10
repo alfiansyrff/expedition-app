@@ -107,6 +107,20 @@
             @role('agent')
                 <li class="relative dark:bg-gray-800 dark:hover:bg-gray-700 group hover:bg-white">
                     <span class="absolute inset-y-0 left-0 w-1 bg-kuning-300 dark:bg-blue-600 rounded-tr-lg rounded-br-lg"
+                        aria-hidden="true" x-show="active === 'pengiriman'"></span>
+                    <a @click="active = 'pengiriman'; localStorage.setItem('active', 'pengiriman');"
+                        href="{{ route('pengiriman') }}"
+                        class="inline-flex px-6 py-3 items-center w-full text-sm font-semibold transition-colors duration-150 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.2em" class="group-hover:h-5"
+                            viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path class="bold dark:fill-white"
+                                d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+                        </svg>
+                        <span class="ml-4 dark:text-white">PENGIRIMAN</span>
+                    </a>
+                </li>
+                <li class="relative dark:bg-gray-800 dark:hover:bg-gray-700 group hover:bg-white">
+                    <span class="absolute inset-y-0 left-0 w-1 bg-kuning-300 dark:bg-blue-600 rounded-tr-lg rounded-br-lg"
                         aria-hidden="true" x-show="active === 'riwayat_kirim'"></span>
                     <a @click="active = 'riwayat_kirim'; localStorage.setItem('active', 'riwayat_kirim');"
                         class="inline-flex px-6 py-3 items-center w-full text-sm font-semibold transition-colors duration-150 group-hover:text-gray-800 dark:group-hover:text-gray-200">
@@ -148,8 +162,23 @@
             @role('user')
                 <li class="relative dark:bg-gray-800 dark:hover:bg-gray-700 group hover:bg-white">
                     <span class="absolute inset-y-0 left-0 w-1 bg-kuning-300 dark:bg-blue-600 rounded-tr-lg rounded-br-lg"
+                        aria-hidden="true" x-show="active === 'pengiriman'"></span>
+                    <a @click="active = 'pengiriman'; localStorage.setItem('active', 'pengiriman');"
+                        href="{{ route('pengiriman') }}"
+                        class="inline-flex px-6 py-3 items-center w-full text-sm font-semibold transition-colors duration-150 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.2em" class="group-hover:h-5"
+                            viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path class="bold dark:fill-white"
+                                d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+                        </svg>
+                        <span class="ml-4 dark:text-white">PENGIRIMAN</span>
+                    </a>
+                </li>
+                <li class="relative dark:bg-gray-800 dark:hover:bg-gray-700 group hover:bg-white">
+                    <span class="absolute inset-y-0 left-0 w-1 bg-kuning-300 dark:bg-blue-600 rounded-tr-lg rounded-br-lg"
                         aria-hidden="true" x-show="active === 'kirim_baru'"></span>
-                    <a href="{{ route('create.pengiriman') }}" @click="active = 'kirim_baru'; localStorage.setItem('active', 'kirim_baru');"
+                    <a href="{{ route('create.pengiriman') }}"
+                        @click="active = 'kirim_baru'; localStorage.setItem('active', 'kirim_baru');"
                         class="inline-flex px-6 py-3 items-center w-full text-sm font-semibold transition-colors duration-150 group-hover:text-gray-800 dark:group-hover:text-gray-200">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1.2em" class="group-hover:h-5"
                             viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
