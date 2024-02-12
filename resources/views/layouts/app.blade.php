@@ -24,15 +24,14 @@
     <script src="https://kit.fontawesome.com/b89324f31c.js" crossorigin="anonymous"></script>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/init-alpine.js') }}"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="{{ asset('js/init-alpine.js') }}"></script>
 </head>
 
 <body class="font-sans antialiased" x-data="data()" x-init="if (!('dark' in localStorage) {
         localStorage.setItem('dark', true);
     }
     dark = localStorage.getItem('dark'); $watch('dark', value => localStorage.setItem('dark', value))">
-    @livewireStyles
     <div class="min-h-screen flex h-screen" :class="{ 'overflow-hidden': isSideMenuOpen, 'dark': dark }">
         <!-- Desktop sidebar -->
         <x-sidebars.sidebar />
@@ -45,7 +44,6 @@
             </main>
         </div>
     </div>
-    @livewireScripts
 </body>
 
 </html>
